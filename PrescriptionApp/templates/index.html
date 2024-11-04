@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+    <!-- External Styles -->
+    <style>
+        body {
+            background-image: url("static/images/bg.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 1.0);
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: white;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.37); /* Transparent white background */
+            backdrop-filter: blur(5px); /* Add the glass effect */
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 500px;
+        }
+
+        .form-group {
+            margin-bottom: 35px;
+        }
+
+        label {
+            color: teal;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            background-color: teal;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #cart-total {
+            font-weight: bold;
+            color: black;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .footer {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 1.0);
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">MedRead</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home</a>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="contact us.html">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <form action="/" method="POST" enctype="multipart/form-data">
+    <div class="container">
+        <div class="card">
+            <h1 class="text-center">Prescription Interpretation</h1>
+            <div id="credit-card-details">
+                <div class="form-group">
+                    <label for="patient_name">Patient Name</label>
+                    <input type="text" id="card-number" name="patient_name" placeholder="Enter patient name" required>
+                </div>
+                <div class="form-group">
+                    <label for="doctor_name">Doctor Name</label>
+                    <input type="text" id="card-holder-name" name="doctor_name" placeholder="Enter doctor name" required>
+                </div>
+                <div class="form-group">
+                    <label for="hospital_name">Hospital/Clinic name</label>
+                    <input type="text" id="expiry-date" name="hospital_name" placeholder="Enter Hospital/Clinic name" required>
+                </div>
+                <div class="form-group">
+                    <label for="prescription_file">Date of Prescription</label>
+                    <input type="date" placeholder="Enter the date of prescription" required>
+                </div>
+                <div class="form-group">
+                    <label for="prescription_file">Prescription</label>
+                    <input type="file" id="cvv" name="prescription_file" placeholder="Upload Prescription" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+    </form>
+<!--  
+    <form action="/" method="POST" enctype="multipart/form-data">
+        <label>Patient Name: <input type="text" name="patient_name" required></label><br>
+        <label>Doctor's Name: <input type="text" name="doctor_name" required></label><br>
+        <label>Hospital/Clinic Name: <input type="text" name="hospital_name" required></label><br>
+        <label>Upload Prescription: <input type="file" name="prescription_file" required></label><br>
+        <button type="submit">Submit</button>
+    </form>
+-->
+    {% if result %}
+        <h2>Medicine Details:</h2>
+        <pre>{{ result | tojson(indent=2) }}</pre>
+    {% endif %}
+    
+    <div class="footer">
+        <div class="container">
+            <p>© 2024 MedRead. All rights reserved.</p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
+</body>
+</html>

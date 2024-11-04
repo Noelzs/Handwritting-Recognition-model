@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Details</title>
+    <style>
+         body {
+            background-image: url("images/grey.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 1.0);
+        }
+
+        .navbar-brand {
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-link {
+            color: white;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.37); /* Transparent white background */
+            backdrop-filter: blur(5px); /* Add the glass effect */
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 700px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            color: teal;
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button[type="submit"] {
+            background-color: teal;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        h1 {
+            color: #00ff08;
+        }
+        p {
+            margin: 10px 0;
+        }
+        strong {
+            color: #00ff08;
+        }
+        .footer {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 1.0);
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand">MedRead</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="card">
+            <h1 class="text-center">Prescription Details</Details></h1>
+                <div class="details-container">
+                    <p><strong>Patient Name:</strong> {{ patient_name }}</p>
+                    <p><strong>Doctor Name:</strong> {{ doctor_name }}</p>
+                    <p><strong>Hospital Name:</strong> {{ hospital_name }}</p>
+                    <p><strong>Interpreted Word:</strong> {{ interpreted_word }}</p>
+                    <h2 class="text-center">Additional Details*</Details></h2>
+                    <p><strong>Purpose:</strong> {{ purpose }}</p>
+                    <p><strong>Warnings:</strong> {{ warnings }}</p>
+                    <p><strong>Dosage:</strong> {{ dosage }}</p>
+                    <p><strong>Keep Out of Reach:</strong> {{ keep_out_of_reach }}</p>
+                    <p><strong>Pregnancy/Breastfeeding:</strong> {{ pregnancy }}</p>
+                    <p><strong>Stop Use:</strong> {{ stop_use }}</p>
+                </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <p style="text-align: right;">* May not be accurate all the time</p>
+            <p>© 2024 MedRead. All rights reserved.</p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: #333;
+        }
+        h1 {
+            color: #00ff08;
+        }
+        .details-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 700px;
+            margin: 20px;
+            text-align: left;
+        }
+        p {
+            margin: 10px 0;
+        }
+        strong {
+            color: #00ff08;
+        }
+        @media (max-width: 400px) {
+            .details-container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Prescription Details</h1>
+    <div class="details-container">
+        <p><strong>Patient Name:</strong> {{ patient_name }}</p>
+        <p><strong>Doctor Name:</strong> {{ doctor_name }}</p>
+        <p><strong>Hospital Name:</strong> {{ hospital_name }}</p>
+        <p><strong>Interpreted Word:</strong> {{ interpreted_word }}</p>
+        <p><strong>Purpose:</strong> {{ purpose }}</p>
+        <p><strong>Warnings:</strong> {{ warnings }}</p>
+        <p><strong>Dosage:</strong> {{ dosage }}</p>
+        <p><strong>Keep Out of Reach:</strong> {{ keep_out_of_reach }}</p>
+        <p><strong>Pregnancy/Breastfeeding:</strong> {{ pregnancy }}</p>
+        <p><strong>Stop Use:</strong> {{ stop_use }}</p>
+    </div>
+</body>
+</html>
+
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Details</title>
+</head>
+<body>
+    <h1>Prescription Details</h1>
+    <p><strong>Patient Name:</strong> {{ patient_name }}</p>
+    <p><strong>Doctor Name:</strong> {{ doctor_name }}</p>
+    <p><strong>Hospital Name:</strong> {{ hospital_name }}</p>
+    <p><strong>Interpreted Word:</strong> {{ interpreted_word }}</p>
+    <p><strong>Purpose:</strong> {{ purpose }}</p>
+    <p><strong>Warnings:</strong> {{ warnings }}</p>
+    <p><strong>Dosage:</strong> {{ dosage }}</p>
+    <p><strong>Keep Out of Reach:</strong> {{ keep_out_of_reach }}</p>
+    <p><strong>Pregnancy/Breastfeeding:</strong> {{ pregnancy }}</p>
+    <p><strong>Stop Use:</strong> {{ stop_use }}</p>
+</body>
+</html>
